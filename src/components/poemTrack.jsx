@@ -1,22 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import AudioPlayer from './audioPlayer';
-import TextVisualizer from './textVisualizer';
+import { Link } from 'react-router-dom';
 
 const PoemTrack = props => {
-  const { audioURI, textURI } = props;
+  const {
+    track: { trackId, title, origin, poet },
+  } = props;
 
-  // if (audioURI === '') return <p>Loading please wait...</p>;
   return (
-    (audioURI === '')
-      ? <p>Loading...</p>
-      : (<div> <TextVisualizer src={textURI} /> <AudioPlayer src={audioURI} /></div>)
+    <div className="col-md-3 mt-2">
+      <div>{title}</div>
+      <div>{origin}</div>
+      <div>{poet}</div>
+      <Link to={`/translate/listen/${trackId}`} className="btn btn-primary">
+        Listen
+      </Link>
+    </div>
   );
 };
 
 PoemTrack.propTypes = {
-  audioURI: PropTypes.string.isRequired,
-  textURI: PropTypes.string.isRequired,
+  track: PropTypes.shape({
+    audioURI: PropTypes.string,
+    textURI: PropTypes.string,
+    title: PropTypes.string,
+    origin: PropTypes.string,
+    poet: PropTypes.string,
+    trackId: PropTypes.number,
+  }).isRequired,
 };
 
 export default PoemTrack;
