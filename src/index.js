@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import firebase from 'firebase/app';
 import 'firebase/storage';
+import 'firebase/database';
 import App from './components/App';
 import 'bootstrap/dist/css/bootstrap.css';
 
@@ -22,5 +23,6 @@ firebase.initializeApp(firebaseConfig);
 ReactDOM.render(
   <BrowserRouter>
     <App />
-  </BrowserRouter>, document.getElementById('root'),
+  </BrowserRouter>,
+  document.getElementById('root')
 );
