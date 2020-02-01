@@ -1,12 +1,14 @@
-const StoragePath = {
-  translated: {
-    media: '/translate/media',
-    text: '/translate/text',
-  },
-  raw: {
-    media: '/raw/media',
-    text: '/raw/text',
-  },
+export const translatePath = '/translate';
+export const rawPath = '/raw';
+export const mediaPath = '/media';
+export const scriptPath = '/text';
+
+export const getRawRemotePath = {
+  audio: `${rawPath}${mediaPath}`,
+  script: `${rawPath}${scriptPath}`,
 };
 
-export default StoragePath;
+export const getTranslateRemotePath = {
+  audio: `${translatePath}${mediaPath}`,
+  script: `${translatePath}${scriptPath}`,
+};

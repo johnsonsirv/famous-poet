@@ -1,28 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
-import firebase from 'firebase/app';
-import 'firebase/storage';
-import 'firebase/database';
+import { createStore, applyMiddleware } from 'redux';
+import reduxThunk from 'redux-thunk';
+import rootReducer from './components/reducers';
 import App from './components/App';
 import 'bootstrap/dist/css/bootstrap.css';
 
-const firebaseConfig = {
-  apiKey: 'AIzaSyDDmQ-H4KcJfcElGPoiZPskmkaTc9NfzuI',
-  authDomain: 'famous-poet.firebaseapp.com',
-  databaseURL: 'https://famous-poet.firebaseio.com',
-  projectId: 'famous-poet',
-  storageBucket: 'famous-poet.appspot.com',
-  messagingSenderId: '999927642397',
-  appId: '1:999927642397:web:085875dc215b14b28789f4',
-  measurementId: 'G-3E2WPN3REZ',
-};
 
-firebase.initializeApp(firebaseConfig);
-
+const store = createStore(rootReducer, {}, applyMiddleware(reduxThunk));
 ReactDOM.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
+  <Provider store={store}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Provider>,
   document.getElementById('root')
 );

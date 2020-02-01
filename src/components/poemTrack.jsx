@@ -4,12 +4,14 @@ import { Link } from 'react-router-dom';
 
 const PoemTrack = props => {
   const {
-    track: { id, title, origin, author, category },
+    track: {
+      title, origin, author, category, translated,
+    },
   } = props;
 
   return (
     <div className="col-md-4 mt-3">
-      <Link to={`/translate/listen/${id}`}>
+      <Link to={`/translate/listen/${translated}`}>
         <h4 className="text text-capitalize">{title}</h4>
       </Link>
       <div className="text text-capitalize">
@@ -24,7 +26,7 @@ const PoemTrack = props => {
         <strong>category: </strong>
         {`${category}`}
       </div>
-      <Link to={`/translate/listen/${id}`} className="btn btn-primary">
+      <Link to={`/translate/listen/${translated}`} className="btn btn-primary">
         Listen
       </Link>
     </div>
@@ -39,6 +41,7 @@ PoemTrack.propTypes = {
     origin: PropTypes.object,
     author: PropTypes.object,
     category: PropTypes.string,
+    translated: PropTypes.string,
     id: PropTypes.number,
   }).isRequired,
 };

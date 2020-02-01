@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import 'firebase/storage';
-import 'firebase/database';
+import { connect } from 'react-redux';
 import PoemTrack from './poemTrack';
+import * as dispatchActions from './actions';
 
 class PoemList extends Component {
   constructor(props) {
     super(props);
     this.state = {};
+  }
+
+  componentDidMount() {
+    const { fetchPoems } = this.props;
+    fetchPoems();
   }
 
   render() {
@@ -22,6 +27,8 @@ class PoemList extends Component {
   }
 }
 
+const mapStateToProps = ({ poems }) => ({ poems });
+
 PoemList.propTypes = {
   poems: PropTypes.arrayOf(
     PropTypes.shape({
@@ -30,8 +37,9 @@ PoemList.propTypes = {
       author: PropTypes.object,
       category: PropTypes.string,
       id: PropTypes.number,
-    }).isRequired
+    }).isRequired,
   ).isRequired,
+  fetchPoems: PropTypes.func.isRequired,
 };
 
-export default PoemList;
+export default connect(mapStateToProps, dispatchActions)(PoemList);
