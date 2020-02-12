@@ -1,4 +1,4 @@
-import { poemDatabaseRef, storageRef } from '../../config/firebase';
+import { poemDatabaseRef, storageRef } from '../config/firebase';
 import { getTranslateRemotePath } from '../utils/firebaseStoragePath';
 
 export const FETCH_POEMS = 'FETCH_POEMS';

@@ -4,13 +4,11 @@ import { Link } from 'react-router-dom';
 
 const PoemTrack = props => {
   const {
-    track: {
-      title, origin, author, category, translated,
-    },
+    track: { title, origin, author, category, translated },
   } = props;
 
   return (
-    <div className="col-md-4 mt-3">
+    <div className="col-sm-3 mt-3">
       <Link to={`/translate/listen/${translated}`}>
         <h4 className="text text-capitalize">{title}</h4>
       </Link>

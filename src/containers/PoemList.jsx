@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import PoemTrack from './poemTrack';
-import * as dispatchActions from './actions';
+import PoemTrack from '../components/poemTrack';
+import * as dispatchActions from '../actions';
 
 class PoemList extends Component {
   constructor(props) {
@@ -18,10 +18,12 @@ class PoemList extends Component {
   render() {
     const { poems } = this.props;
     return (
-      <div className="row">
-        {poems.map(track => (
-          <PoemTrack key={track.id} track={track} />
-        ))}
+      <div className="container border-2">
+        <div className="row">
+          {poems.map(track => (
+            <PoemTrack key={track.id} track={track} />
+          ))}
+        </div>
       </div>
     );
   }

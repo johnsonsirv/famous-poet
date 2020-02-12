@@ -1,0 +1,23 @@
+@import './App';
+@import './navbar';
+
+.border {
+  border: solid 1px #222121;
+}
+
+.border-2 {
+  border: solid 4px #665f5f;
+}
+
+.flex-container {
+  display: flex;
+}
+
+.pd-0 {
+  padding: 0;
+}
+
+.Root-Container {
+  display: flex;
+  height: 100vh;
+}

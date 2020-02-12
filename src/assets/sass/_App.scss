@@ -1,0 +1,19 @@
+$bgTheme: #282828;
+
+.App {
+  background-color: $bgTheme;
+  width: calc(100% - 230px);
+  margin-top: 80px;
+  margin-left: 230px;
+  color: #fff;
+}
+
+.logo {
+  height: auto;
+  justify-content: center;
+  margin-bottom: 9px;
+}
+
+.container {
+  margin: 0;
+}

@@ -4,10 +4,10 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { createStore, applyMiddleware } from 'redux';
 import reduxThunk from 'redux-thunk';
-import rootReducer from './components/reducers';
+import rootReducer from './reducers';
 import App from './components/App';
 import 'bootstrap/dist/css/bootstrap.css';
-
+import './assets/sass/main.scss';
 
 const store = createStore(rootReducer, {}, applyMiddleware(reduxThunk));
 ReactDOM.render(

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import * as dispatchActions from './actions';
-import AudioPlayer from './audioPlayer';
-import TextVisualizer from './textVisualizer';
+import * as dispatchActions from '../actions';
+import AudioPlayer from '../components/audioPlayer';
+import TextVisualizer from '../components/textVisualizer';
 
 class Track extends Component {
   constructor(props) {
