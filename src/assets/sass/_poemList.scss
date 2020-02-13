@@ -1,0 +1,28 @@
+$cardTheme: #665f5f;
+
+.card {
+  width: 265px;
+  font-size: 12px;
+  .card-body {
+    background-color: $cardTheme;
+    .card-text {
+      letter-spacing: 2px;
+      text-transform: capitalize;
+    }
+  }
+  .card-footer {
+    justify-content: space-between;
+  }
+  .card-title {
+    font-weight: bold;
+    text-transform: capitalize;
+  }
+  &:hover {
+    box-shadow: 60px 60px 60px 0 rgba(12, 12, 12, 0.05);
+    cursor: pointer;
+    width: 262px;
+  }
+  .badge-dark {
+    padding: 5px;
+  }
+}

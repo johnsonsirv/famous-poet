@@ -18,7 +18,7 @@ class PoemList extends Component {
   render() {
     const { poems } = this.props;
     return (
-      <div className="container border-2">
+      <div className="container">
         <div className="row">
           {poems.map(track => (
             <PoemTrack key={track.id} track={track} />
@@ -39,7 +39,7 @@ PoemList.propTypes = {
       author: PropTypes.object,
       category: PropTypes.string,
       id: PropTypes.number,
-    }).isRequired,
+    }).isRequired
   ).isRequired,
   fetchPoems: PropTypes.func.isRequired,
 };

@@ -1,5 +1,7 @@
 @import './App';
 @import './navbar';
+@import './poemList';
+@import './track';
 
 .border {
   border: solid 1px #222121;
@@ -19,5 +21,5 @@
 
 .Root-Container {
   display: flex;
-  height: 100vh;
+  height: 100%;
 }
