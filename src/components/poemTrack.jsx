@@ -5,29 +5,12 @@ import logo from '../assets/images/logo.png';
 
 const PoemTrack = props => {
   const {
-    track: { title, origin, author, category, translated },
+    track: {
+      id, title, origin, author, category, translated,
+    },
   } = props;
-
   return (
     <div className="col-sm-3 col-md-3 mt-1">
-      {/* <Link to={`/translate/listen/${translated}`}>
-        <h4 className="text text-capitalize">{title}</h4>
-      </Link>
-      <div className="text text-capitalize">
-        <strong>origin: </strong>
-        {`${origin.tribe}, ${origin.country}`}
-      </div>
-      <div className="text text-capitalize">
-        <strong>poet: </strong>
-        {`${author.firstname} ${author.lastname}`}
-      </div>
-      <div className="text text-capitalize">
-        <strong>category: </strong>
-        {`${category}`}
-      </div>
-      <Link to={`/translate/listen/${translated}`} className="btn btn-primary">
-        Listen
-      </Link> */}
       <div className="card">
         <img className="card-img-top" src={logo} alt="track-default-img" />
         <div className="card-body">
@@ -46,7 +29,7 @@ const PoemTrack = props => {
           </p>
         </div>
         <div className="card-footer flex-container">
-          <Link to={`/translate/listen/${translated}`} title="Listen">
+          <Link to={`/translate/listen/${id}/${translated}`} title="Listen">
             <span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"

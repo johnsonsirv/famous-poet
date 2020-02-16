@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
 import poems from './poems';
-import translated from './translated';
+import poem from './poem';
+import translatedMedia from './translated';
 
 const rootReducer = combineReducers({
   poems,
-  translated,
+  translatedMedia,
+  poem,
 });
 
 export default rootReducer;

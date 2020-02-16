@@ -1,5 +1,8 @@
+/* eslint-disable no-restricted-globals */
 /* eslint-disable jsx-a11y/control-has-associated-label */
-import React, { useRef, useState, useEffect, useCallback } from 'react';
+import React, {
+  useRef, useState, useEffect, useCallback,
+} from 'react';
 import PropTypes from 'prop-types';
 
 const AudioPlayer = ({ src }) => {
@@ -8,9 +11,19 @@ const AudioPlayer = ({ src }) => {
   const [currentPlayTime, setCurrentPlayTime] = useState(0);
   const [pausedStatus, setPauseStatus] = useState({ bar: 0, duration: '' });
   const audioRef = useRef();
-  const handlePlay = () => setPlaying(true);
+  const playAudio = async () => {
+    try {
+      audioRef.current.currentTime = currentPlayTime;
+      await audioRef.current.play();
+      setPlaying(true);
+    } catch (error) {
+      console.log('error playing audio. try again', error);
+    }
+  };
+  const handlePlay = () => playAudio();
   const handlePlayEnded = () => {
     audioRef.current.currentTime = 0;
+    setCurrentPlayTime(0);
     setPlaying(false);
   };
 
@@ -33,26 +46,38 @@ const AudioPlayer = ({ src }) => {
   };
 
   const getPlayProgress = useCallback(() => {
-    const refCurrentTime = audioRef.current.currentTime;
-    const refDuration = audioRef.current.duration;
-    const playPercent = (refCurrentTime / refDuration) * 100;
-    const currTime = playTimeToString(refCurrentTime);
-    const durationTime = playTimeToString(refDuration);
+    let progressObj = {};
+    try {
+      const refCurrentTime = audioRef.current.currentTime;
+      const refDuration = audioRef.current.duration;
+      const playPercent = (refCurrentTime / refDuration) * 100;
+      const currTime = playTimeToString(refCurrentTime);
+      const durationTime = playTimeToString(refDuration);
+      const bar = isNaN(playPercent) ? 0 : playPercent;
+      const duration = `${currTime} / ${durationTime}`;
+      progressObj = { bar, duration };
+    } catch (error) {
+      console.log('Swtiched views while audio is playing');
+    }
 
-    const bar = isNaN(playPercent) ? 0 : playPercent;
-    const duration = `${currTime} / ${durationTime}`;
-
-    return { bar, duration };
+    return progressObj;
   }, [audioRef]);
 
   useEffect(() => {
     audioRef.current.src = src;
     if (playing) {
-      audioRef.current.currentTime = currentPlayTime;
-      audioRef.current.play();
+      try {
+        audioRef.current.currentTime = currentPlayTime;
+        audioRef.current.play();
+      } catch (error) {
+        console.log('error playing audio', error);
+      }
     } else if (!playing) {
       audioRef.current.pause();
     }
+
+    // clean up
+    return () => {};
   }, [src, audioRef, playing, currentPlayTime]);
 
   useEffect(() => {
@@ -117,7 +142,6 @@ const AudioPlayer = ({ src }) => {
           srcLang="en"
           label="english_captions"
         />
-        {/* <source src={src} type="audio/mpeg" /> */}
       </audio>
     </>
   );

@@ -77,7 +77,7 @@ const Navbar = () => (
       <ul className="navbar-nav ml-auto">
         <li className="nav-item">
           <NavLink className="nav-link nav-buttons nav-buttons-bg-dark" to="/">
-            I am a Poet
+            translate a poem
           </NavLink>
         </li>
         <li className="nav-item">

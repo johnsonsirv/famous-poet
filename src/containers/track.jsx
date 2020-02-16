@@ -12,22 +12,30 @@ class Track extends Component {
   }
 
   componentDidMount() {
-    const { match, getTranslatedPoem } = this.props;
-    getTranslatedPoem(match.params.id);
+    const { match, getTranslatedPoemMedia, fetchPoem } = this.props;
+    getTranslatedPoemMedia(match.params.media);
+    fetchPoem(match.params.id);
   }
 
   render() {
     const {
-      translated: { audioURI, scriptURI },
+      poem: {
+        author, origin, title, description,
+      },
+      translatedMedia: { audioURI, scriptURI },
     } = this.props;
     return (
       <>
         <header className="track-header flex-container">
-          <div className="ml-5">
-            <span className="track-title">TRACK TITLE TRACK TITLE</span>
-            <div className="track-metadata mt-1 flex-container">
-              <span>#by - Joel Manny</span>
-              <span>unknown, Nigeria</span>
+          <div className="ml-5 track-author">
+            <span className="track-title">{title}</span>
+            <div className="track-metadata mt-1">
+              {author && (
+                <span className="mr-3">{`#by - ${author.firstname} ${author.lastname}`}</span>
+              )}
+              {origin && (
+                <span>{`origin - ${origin.tribe}, ${origin.country}`}</span>
+              )}
             </div>
           </div>
           <div className="track-audio-player mr-3">
@@ -60,12 +68,7 @@ class Track extends Component {
               <span className="title ml-2">info</span>
             </header>
             <div>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
-              </p>
+              <p>{description}</p>
             </div>
             <footer>
               <header className="pb-2">
@@ -99,19 +102,36 @@ class Track extends Component {
   }
 }
 
-const mapStateToProps = ({ translated }) => ({ translated });
+const mapStateToProps = state => state;
+
+Track.defaultProps = {
+  poem: {
+    author: { firstname: '', lastname: '' },
+    origin: { tribe: '', country: '' },
+    title: '',
+    description: '',
+  },
+};
 
 Track.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
       id: PropTypes.string,
+      media: PropTypes.string,
     }).isRequired,
   }).isRequired,
-  translated: PropTypes.shape({
+  translatedMedia: PropTypes.shape({
     audioURI: PropTypes.string,
     scriptURI: PropTypes.string,
   }).isRequired,
-  getTranslatedPoem: PropTypes.func.isRequired,
+  poem: PropTypes.shape({
+    author: PropTypes.object,
+    origin: PropTypes.object,
+    title: PropTypes.string,
+    description: PropTypes.string,
+  }),
+  getTranslatedPoemMedia: PropTypes.func.isRequired,
+  fetchPoem: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, dispatchActions)(Track);

@@ -7,14 +7,19 @@ $audioIndicatorTheme: #424040;
   justify-content: space-between;
   align-items: center;
   height: 170px;
-  .track-title {
-    font-size: 40px;
-    font-weight: bold;
-    letter-spacing: 3px;
-  }
-  .track-metadata {
-    width: auto;
-    justify-content: space-evenly;
+  .track-author {
+    width: 47%;
+    transition: content 1s;
+    .track-title {
+      font-size: 35px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+    .track-metadata {
+      width: auto;
+      text-transform: capitalize;
+    }
   }
   .track-audio-player {
     width: 350px;
@@ -31,12 +36,13 @@ $audioIndicatorTheme: #424040;
         flex-direction: column;
         height: 35%;
         .progressBar {
-          height: 20px;
+          height: 15px;
           width: 100%;
           border: solid 0.1rem #181717;
           background-color: $audioIndicatorTheme;
           transition: height 1s;
           padding: 0;
+          border-radius: 6px;
           .status {
             height: 10px;
             margin: 0;

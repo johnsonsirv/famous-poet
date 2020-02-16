@@ -1,6 +1,6 @@
 import { GET_STORAGE_URI } from '../actions';
 
-const translated = (state = {}, action) => {
+const translatedMedia = (state = {}, action) => {
   switch (action.type) {
     case GET_STORAGE_URI:
       return action.payload;
@@ -9,4 +9,4 @@ const translated = (state = {}, action) => {
   }
 };
 
-export default translated;
+export default translatedMedia;
