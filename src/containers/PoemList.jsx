@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import PoemTrack from './poemTrack';
-import * as dispatchActions from './actions';
+import Spinner from 'react-spinkit';
+import PoemTrack from '../components/poemTrack';
+import * as dispatchActions from '../actions';
 
 class PoemList extends Component {
   constructor(props) {
@@ -17,11 +18,22 @@ class PoemList extends Component {
 
   render() {
     const { poems } = this.props;
+    const isEmpty = poems.length === 0;
     return (
-      <div className="row">
-        {poems.map(track => (
-          <PoemTrack key={track.id} track={track} />
-        ))}
+      <div className="flex-container main-poemlist-container">
+        <div className="mt-1 flex-container poemlist-row">
+          {isEmpty && (
+            <Spinner
+              className="mr-auto ml-auto"
+              name="three-bounce"
+              color="#000"
+              fadeIn="none"
+            />
+          )}
+          {poems.map(track => (
+            <PoemTrack key={track.id} track={track} />
+          ))}
+        </div>
       </div>
     );
   }
