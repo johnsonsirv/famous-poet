@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import Spinner from 'react-spinkit';
 import * as dispatchActions from '../actions';
 import AudioPlayer from '../components/audioPlayer';
 import TextVisualizer from '../components/textVisualizer';
@@ -19,17 +20,18 @@ class Track extends Component {
 
   render() {
     const {
-      poem: {
-        author, origin, title, description,
-      },
+      poem: { author, origin, title, description },
       translatedMedia: { audioURI, scriptURI },
     } = this.props;
+
+    const isLoadingPoemInfo = author === undefined;
     return (
       <>
         <header className="track-header flex-container">
           <div className="ml-5 track-author">
             <span className="track-title">{title}</span>
             <div className="track-metadata mt-1">
+              {isLoadingPoemInfo && <Spinner name="wave" color="#141313" />}
               {author && (
                 <span className="mr-3">{`#by - ${author.firstname} ${author.lastname}`}</span>
               )}
@@ -68,6 +70,7 @@ class Track extends Component {
               <span className="title ml-2">info</span>
             </header>
             <div>
+              {isLoadingPoemInfo && <Spinner name="wave" color="#141313" />}
               <p>{description}</p>
             </div>
             <footer>
