@@ -20,7 +20,9 @@ class Track extends Component {
 
   render() {
     const {
-      poem: { author, origin, title, description },
+      poem: {
+        author, origin, title, description,
+      },
       translatedMedia: { audioURI, scriptURI },
     } = this.props;
 

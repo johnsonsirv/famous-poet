@@ -106,15 +106,28 @@ $audioIndicatorTheme: #424040;
   }
   .translated-text {
     width: 60%;
+    height: 100%;
     padding: 5px;
     header {
       justify-content: flex-end;
+    }
+    .iframe-body {
+      height: 100%;
+      padding: 0;
+      margin: 0;
     }
     iframe {
       font-size: 14px;
       letter-spacing: 2px;
       border-style: none;
+      padding: 0;
+      margin: 0;
       width: 100%;
+      height: 460px;
+      scroll-behavior: auto;
+      overflow: scroll;
+      text-align: justify;
+      line-height: 0.9em;
     }
   }
 }
