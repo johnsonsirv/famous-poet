@@ -68,7 +68,33 @@ const SideNavbar = () => (
         </li>
       </ul>
     </div>
-    <div className="">Other Stuff</div>
+    <div className="credits-section flex-container mt-auto">
+      <div className="credits-header">
+        <span>Credits:</span>
+      </div>
+      <div className="credits-footer">
+        <ul className="navbar-nav">
+          <li className="nav-item">
+            <a
+              className="nav-link navlink-with-icon p-2"
+              href="https://www.poetryfoundation.org/"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <span>Poetry Foundation</span>
+            </a>
+            <a
+              className="nav-link navlink-with-icon p-2"
+              href="http://badilishapoetry.com"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <span>Badilisha Poetry</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
   </nav>
 );
 

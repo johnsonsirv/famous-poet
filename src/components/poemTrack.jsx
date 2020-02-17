@@ -10,7 +10,7 @@ const PoemTrack = props => {
     },
   } = props;
   return (
-    <div className="card">
+    <div className="card mb-2">
       <img className="card-img-top" src={logo} alt="track-default-img" />
       <div className="card-body">
         <h5 className="card-title">{title}</h5>

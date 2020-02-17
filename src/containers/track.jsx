@@ -35,7 +35,7 @@ class Track extends Component {
             <div className="track-metadata mt-1">
               {isLoadingPoemInfo && <Spinner name="wave" color="#141313" />}
               {author && (
-                <span className="mr-3">{`#by - ${author.firstname} ${author.lastname}`}</span>
+                <span className="text text-capitalize mr-3">{`#by - ${author.firstname} ${author.lastname}`}</span>
               )}
               {origin && (
                 <span>{`origin - ${origin.tribe}, ${origin.country}`}</span>

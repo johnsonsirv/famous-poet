@@ -76,3 +76,18 @@ $hoverBg: #282828;
 .nav-item {
   margin: 0.4em;
 }
+
+.credits-section {
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 50%;
+  align-items: center;
+  .credits-header {
+    height: 30px;
+    font-size: 1.2em;
+    color: #b3b3b3;
+  }
+  .credits-footer {
+    height: 250px;
+  }
+}
