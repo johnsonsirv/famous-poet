@@ -1,3 +1,4 @@
+import is from 'is_js';
 import { poemDatabaseRef, storageRef } from '../config/firebase';
 import { getTranslateRemotePath } from '../utils/firebaseStoragePath';
 
@@ -25,9 +26,10 @@ export const fetchPoem = id => async dispatch => {
 };
 
 export const getTranslatedPoemMedia = media => async dispatch => {
+  const platformAudioExtension = is.firefox() ? 'ogg' : 'mp3';
   const audioURI = await storageRef
     .child(getTranslateRemotePath.audio)
-    .child(`${media}.mp3`)
+    .child(`${media}.${platformAudioExtension}`)
     .getDownloadURL();
   const scriptURI = await storageRef
     .child(getTranslateRemotePath.script)

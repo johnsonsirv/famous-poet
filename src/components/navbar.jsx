@@ -1,5 +1,4 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 
 const Navbar = () => (
   <nav className="navbar navbar-expand-lg fixed-top navbar-bg-dark">
@@ -76,14 +75,24 @@ const Navbar = () => (
     <div className="collapse navbar-collapse" id="navbarNav">
       <ul className="navbar-nav ml-auto">
         <li className="nav-item">
-          <NavLink className="nav-link nav-buttons nav-buttons-bg-dark" to="/">
+          <a
+            className="nav-link nav-buttons nav-buttons-bg-dark"
+            href="https://forms.gle/njj6Y72b7SpGRC2T6"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             translate a poem
-          </NavLink>
+          </a>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link nav-buttons nav-buttons-bg-light" to="/">
+          <a
+            className="nav-link nav-buttons nav-buttons-bg-light"
+            href="https://forms.gle/njj6Y72b7SpGRC2T6"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             contribute a Poem
-          </NavLink>
+          </a>
         </li>
       </ul>
     </div>

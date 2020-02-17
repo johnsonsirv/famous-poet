@@ -1,5 +1,16 @@
 $cardTheme: #665f5f;
 
+.main-poemlist-container {
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  justify-content: center;
+}
+.poemlist-row {
+  width: 90%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 .card {
   width: 265px;
   font-size: 12px;

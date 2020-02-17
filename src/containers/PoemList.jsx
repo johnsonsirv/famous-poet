@@ -20,18 +20,15 @@ class PoemList extends Component {
     const { poems } = this.props;
     const isEmpty = poems.length === 0;
     return (
-      <div className="container">
-        <div className="row">
+      <div className="flex-container main-poemlist-container">
+        <div className="mt-1 flex-container poemlist-row">
           {isEmpty && (
-            <div className="col-md-6 ml-auto mr-auto">
-              <h3 className="text text-secondary text-bold">loading poems</h3>
-              <Spinner
-                className="mr-auto"
-                name="three-bounce"
-                color="#000"
-                fadeIn="none"
-              />
-            </div>
+            <Spinner
+              className="mr-auto ml-auto"
+              name="three-bounce"
+              color="#000"
+              fadeIn="none"
+            />
           )}
           {poems.map(track => (
             <PoemTrack key={track.id} track={track} />
@@ -52,7 +49,7 @@ PoemList.propTypes = {
       author: PropTypes.object,
       category: PropTypes.string,
       id: PropTypes.number,
-    }).isRequired
+    }).isRequired,
   ).isRequired,
   fetchPoems: PropTypes.func.isRequired,
 };
