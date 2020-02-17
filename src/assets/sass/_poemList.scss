@@ -7,9 +7,9 @@ $cardTheme: #665f5f;
   justify-content: center;
 }
 .poemlist-row {
-  width: 90%;
+  width: 100%;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 .card {
   width: 265px;
