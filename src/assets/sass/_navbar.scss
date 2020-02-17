@@ -1,0 +1,93 @@
+$defaultTheme: #000;
+$darkTheme: rgb(12, 12, 12); //#111010;
+$navLinkColor: #b3b3b3;
+$hoverBg: #282828;
+
+.side-nav {
+  position: fixed;
+  height: 100%;
+  max-height: 100%;
+  width: 230px;
+  box-shadow: 0 0 60px 0 rgba(12, 12, 12, 0.05);
+}
+
+.navbar-bg-default {
+  background-color: $defaultTheme;
+}
+
+.navbar-bg-dark {
+  background-color: $darkTheme;
+  box-shadow: 0 0 60px 0 rgba(12, 12, 12, 0.05);
+
+  .nav-buttons {
+    font-family: Helvetica Neue, Helvetica, Arial, Hiragino Kaku Gothic Pro,
+      Meiryo, MS Gothic, sans-serif;
+    line-height: 20px;
+    letter-spacing: 1.76px;
+    border-radius: 500px;
+    text-transform: uppercase;
+    transition: all 33ms cubic-bezier(0.3, 0, 0, 1);
+    padding: 8px 34px;
+    will-change: transform;
+    font-size: 12px;
+    &:hover {
+      font-size: 12.5px;
+    }
+  }
+  .nav-buttons-bg-light {
+    background-color: #fff;
+    color: #181818;
+  }
+  .nav-buttons-bg-dark {
+    background-color: transparent;
+    color: #fff;
+    border: solid 1px #181818;
+  }
+
+  .audio-icons {
+    width: 200px;
+    justify-content: space-evenly;
+  }
+}
+
+.navbar-expand-lg {
+  width: calc(100% - 230px);
+  height: 80px;
+  margin-left: auto;
+}
+
+.navlink-with-icon {
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2em;
+  color: $navLinkColor;
+}
+
+.icon {
+  margin-right: 0.2em;
+}
+
+.navlink-with-icon:hover {
+  color: #fff;
+  background-color: $hoverBg;
+  border-radius: 8px;
+}
+
+.nav-item {
+  margin: 0.4em;
+}
+
+.credits-section {
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 60%;
+  align-items: center;
+  .credits-header {
+    height: 30px;
+    font-size: 1.2em;
+    color: #b3b3b3;
+  }
+  .credits-footer {
+    height: 250px;
+  }
+}
