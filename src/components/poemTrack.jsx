@@ -50,7 +50,7 @@ const PoemTrack = props => {
             </svg>
           </span>
         </Link>
-        <Link to={`/translate/listen/${translated}`} title="Read">
+        <Link to={`/translate/listen/${id}/${translated}`} title="Read">
           <span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -89,7 +89,7 @@ const PoemTrack = props => {
             </svg>
           </span>
         </Link>
-        <Link to={`/translate/listen/${translated}`} title="Like">
+        <Link to={`/translate/listen/${id}/${translated}`} title="Like">
           <span>
             <svg
               id="IconsRepoEditor"
