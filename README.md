@@ -54,6 +54,8 @@ The backend of this app uses [Firebase](https://firebaseio.com) therefore you ne
 $ git clone https://github.com/johnsonsirv/famous-poet.git
 ```
 
+### Usage
+
 > in your terminal
 
 ```sh
@@ -64,11 +66,9 @@ $ npm install
 $ npm run start
 ```
 
-### Usage
-
 ### Contributor(s)
 
-[Victor Okeugo](https://angel.co/u/victorokeugo/)
+[Victor Okeugo](https://linkedin.com/in/victorokeugo/)
 
 - Github: [@johnsonsirv](https://github.com/johnsonsirv)
 - Twitter: [@vokeugo](https://twitter.com/@vokeugo/)
@@ -76,7 +76,7 @@ $ npm run start
 
 ### Contributing
 
-1. Fork it (https://github.com/johnsonsirv/local-restaurant-page/fork)
+1. Fork it (https://github.com/johnsonsirv/famous-poet/fork)
 2. Create your feature branch (git checkout -b feature/[choose-a-name])
 3. Commit your changes (git commit -m 'What this commit will fix/add')
 4. Push to the branch (git push origin feature/[chosen name])
