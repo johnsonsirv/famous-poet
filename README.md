@@ -25,12 +25,6 @@ that will store collections of history poems, songs across several languages.
 Because the WWW never really dies, the next generation will also find this app
 useful as it could serve as a base for future development or innovation. It will connect poem authors (poets) as a tool to immortalize eventful memories.
 
-[See Live URL](https://famous-poet.netlify.com/)
-
-![](https://github.com/johnsonsirv/famous-poet/blob/master/docs/famous-poet-home-page.PNG)
-
-![](https://github.com/johnsonsirv/famous-poet/blob/master/docs/famous-poet-audio-stream-page.PNG)
-
 ### Built with:
 
 - React/React Hook
